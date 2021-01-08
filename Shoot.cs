@@ -9,13 +9,7 @@ public class Shoot : MonoBehaviour
     public Rigidbody2D bulletPrefap;
     public float bulletSpeed = 100f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Attack()
     {
         clone = Instantiate(bulletPrefap, Bulletspawn.position, Bulletspawn.rotation);
