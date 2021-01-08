@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Bewegung : MonoBehaviour
 {
-    public int speed = 5;
-    public int sprunghöhe = 10;
+    public int speedR = 5;
+    public int speedL = -5;
+    public int sprunghÃ¶he = 10;
     public Rigidbody2D myRB;
     private bool Jump = false;
     public Animator animations;
@@ -53,17 +54,23 @@ public class Bewegung : MonoBehaviour
 
         
         var velocity = myRB.velocity;
-        if (Input.GetButton("horizontel"))
+        if (Input.GetKey("d"))
         {
-            velocity.x = speed * Input.GetAxisRaw("horizontel");
+            velocity.x = speedR;
             animations.SetFloat("runspeed", Mathf.Abs(velocity.x));
             
         }
-        if (Input.GetButton("jump"))
+        if (Input.GetKey("a"))
+        {
+           velocity.x = speedL;
+           animations.SetFloat("runspeed", Mathf.Abs(velocity.x));
+        }
+        
+        if (Input.GetKey("space"))
         {
             if (Jump == true)
             {
-                velocity.y = sprunghöhe;
+                velocity.y = sprunghÃ¶he;
                 Jump = false;
                 animations.SetBool("isjumping", true);
             }
